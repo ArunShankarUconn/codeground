@@ -1,0 +1,30 @@
+library(twitteR)
+library(ROAuth)
+require(RCurl)
+library(stringr)
+library(tm)
+library(ggmap)
+library(dplyr)
+library(plyr)
+library(tm)
+library(wordcloud)
+
+install.packages("devtools")
+library(devtools)
+
+#installing 'base64enc' package ensures smooth authentication for 64-bit machines
+install.packages("base64enc")
+
+#Got to https://dev.twitter.com/ and log in with your Twitter Account.
+#Go to “My Applications”
+#Click on “Create new application”.
+#You can name your Application whatever you want and also set Description on whatever you want.
+#Twitter requires a valid URL for the website, you can just type in http://test.de/ ; you won´t need it anymore.
+
+
+api_key <- "Wtd6j8vxdJsNHccoWtmuYhBqb"
+api_secret <- "McaswbbpNN0YML1o1bSWYLf7TS57zAG7KuNLDQN8bL0slVralg"
+access_token <- "2202490020-1SYhDQhSc8Oo6hZy7NB1MRSaPoJod5WPFlZnJyN"
+access_token_secret <- "dna1Flt0gxXefI2VgXv7PKEGxdeXGxuYuSazrGXkrXmig"
+setup_twitter_oauth(api_key,api_secret,access_token,access_token_secret)
+searchTwitter("iPhone")
