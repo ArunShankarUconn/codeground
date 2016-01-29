@@ -22,9 +22,9 @@ install.packages("base64enc")
 #Twitter requires a valid URL for the website, you can just type in http://test.de/ ; you won´t need it anymore.
 
 
-api_key <- "Wtd6j8vxdJsNHccoWtmuYhBqb"
-api_secret <- "McaswbbpNN0YML1o1bSWYLf7TS57zAG7KuNLDQN8bL0slVralg"
-access_token <- "2202490020-1SYhDQhSc8Oo6hZy7NB1MRSaPoJod5WPFlZnJyN"
-access_token_secret <- "dna1Flt0gxXefI2VgXv7PKEGxdeXGxuYuSazrGXkrXmig"
+api_key <- "your-api-key"
+api_secret <- "your-api-secret-key"
+access_token <- "your-access_token"
+access_token_secret <- "your-access_token_secret"
 setup_twitter_oauth(api_key,api_secret,access_token,access_token_secret)
 searchTwitter("iPhone")
