@@ -27,4 +27,19 @@ api_secret <- "your-api-secret-key"
 access_token <- "your-access_token"
 access_token_secret <- "your-access_token_secret"
 setup_twitter_oauth(api_key,api_secret,access_token,access_token_secret)
-searchTwitter("iPhone")
+tweets = searchTwitter("iPhone",n=10000)
+
+# Gathered text is stored in a large DF. We need to unlist it and keep in a single vector.
+tweetstext=sapply(tweets, function(x) x$getText())
+tweetstext=unlist(tweetstext)
+
+# Remove garbled text, emoticons and symbols
+tweetstext=str_replace_all(tweetstext,"[^[:graph:]]", " ")
+
+# Simple tm stuff
+corpus=Corpus(VectorSource(tweetstext))
+corpus=tm_map(corpus,tolower)
+corpus=tm_map(corpus,function(x) removeWords(x,stopwords()))
+corpus=tm_map(corpus,PlainTextDocument)
+col=brewer.pal(6,"Dark2")
+wordcloud(corpus, min.freq=25, scale=c(5,2),rot.per = 0.25,random.color=T, max.word=45, random.order=F,colors=col)
