@@ -1,0 +1,24 @@
+# An approach to connect Tableau with R and perform simple cluster-analysis very quickly.
+
+Step 1 - Open R. Download and install 'Rserve' library.
+Step 2 - Start Rserve service by initiating Rserve() function in R console. This opens a R service on local host for communicating with Tableau.
+Step 3 - Open Tableau. Go to Help > Settings and Performance > Manage R connection. Enable and test connection. Click OK.
+Step 4 - Create a new calculated field (Dimension/ Measure). Utilize R functions in this calculated field by using SCRIPT_INT function from Tableau function library.
+          I am using k-means function example as below:
+          
+          SCRIPT_INT(
+                    "
+                      result <- kmeans(data.frame(.arg1,.arg2,.arg3,.arg4), .arg5[1]);
+                      result$cluster;
+                    ", 
+                      SUM([Petal.Length]), SUM([Petal.Width]),SUM([Sepal.Length]),SUM([Sepal.Width]),[num_of_clusters])
+                      
+                      
+          Data: Default dataset from R's library - IrisData.csv
+          
+          This example creates clusters of data(flowers) based on their petal and sepal width and length.
+          
+Step 5 - Visualize these clusters on a Tableau sheet by using the calculated field.
+
+
+For reference, email me to view the sample Tableau visualization; since R scripts are not allowed to execute on Tableau Public.
