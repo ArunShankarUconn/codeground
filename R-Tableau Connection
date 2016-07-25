@@ -21,4 +21,5 @@ Step 4 - Create a new calculated field (Dimension/ Measure). Utilize R functions
 Step 5 - Visualize these clusters on a Tableau sheet by using the calculated field.
 
 
-For reference, email me to view the sample Tableau visualization; since R scripts are not allowed to execute on Tableau Public.
+For reference, email me (at arun.shankar@uconn.edu) to view the sample Tableau visualization;
+since R scripts are not allowed to execute on Tableau Public.
